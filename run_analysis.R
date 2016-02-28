@@ -1,6 +1,6 @@
-datadir <- "UCIDT"
-testdir <- "UCIDT/test"
-traindir <- "UCIDT/train"
+datadir <- "UCI HAR Dataset"
+testdir <- "UCI HAR Dataset/test"
+traindir <- "UCI HAR Dataset/train"
 
 ## Read the data
 xtext <- read.table(paste(testdir,"/X_test.txt", sep=""), header = FALSE)
@@ -52,4 +52,4 @@ library(dplyr)
 tidydata_gpby <- tidydat%>% group_by(activity, add = TRUE) %>% 
                  group_by(subject, add = TRUE)%>% summarise_each(funs(mean))
 
-write.table(tidydata_gpby, "tidydata.csv", sep=",")
+write.table(tidydata_gpby, "tidydata.txt", row.name=FALSE )
